@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Login</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+
+</head>
+<body>
+<!-- 	<div th:replace="Home/index2"></div> -->
+	<br />
+	<br />
+	<br />
+	<div id="PageWrapper" class="container">
+		<div class="col-sm-6 col-sm-offset-3"
+			style="border-radius: 4px 4px 10px 10px; background: #ffffff">
+			<div class="col-sm-8 col-sm-offset-2">
+
+				<div th:if="${param.logout}">
+					<div class="alert alert-info">Usuário desconectado, obrigado
+						por usar nossos serviços</div>
+				</div>
+
+				<div th:if="${param.error }">
+					<div class="alert alert-danger">Usuário ou senha inválido</div>
+				</div>
+
+				<h1 class="text-center">
+					<b>Login</b>
+				</h1>
+				<form th:action="@{/loginUsuario}" method="post" th:object="${usuario}">
+
+					<div class="form-group">
+						<label class="glyphicon glyphicon-user"></label> <input
+							type="text" class="form-control" name="username"
+							placeholder="Usuário" />
+					</div>
+					<div class="form-group">
+						<label class="glyphicon glyphicon-lock"></label> <input
+							type="password" class="form-control" name="password"
+							placeholder="Senha" />
+					</div>
+
+					<button type="submit" class="btn btn-primary btn-block">Acessar</button>
+					<a class="btn btn-default btn-block" href="form">Cadastrar um
+						novo usuário</a> <br />
+
+
+					<div class="form-group">
+						<input type="checkbox" id="remember-me" name="remember-me" /> <label
+							for="remember-me">Lembrar?</label>
+					</div>
+
+<!-- 					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"> -->
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+[33mcommit 8ca73614d377244cf1cd350825c9f2ef46fdf178[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: GlenerChimenes <glener.chimenes@gmail.com>
+Date:   Sat Aug 17 18:48:07 2019 -0300
+
+    subindo projeto cobranca 1.0.0
+
+:000000 100644 0000000 a2a3040 A	.gitignore
+:000000 100644 0000000 72308aa A	.mvn/wrapper/MavenWrapperDownloader.java
+:000000 100644 0000000 01e6799 A	.mvn/wrapper/maven-wrapper.jar
+:000000 100644 0000000 cd0d451 A	.mvn/wrapper/maven-wrapper.properties
+:000000 100644 0000000 8b9da3b A	mvnw
+:000000 100644 0000000 fef5a8f A	mvnw.cmd
+:000000 100644 0000000 dd3b373 A	pom.xml
+:000000 100644 0000000 04c6a2b A	src/main/java/com/algaworks/cobranca/CobrancaApplication.java
+:000000 100644 0000000 fcbccc3 A	src/main/java/com/algaworks/cobranca/ServletInitializer.java
+:000000 100644 0000000 ab0cd88 A	src/main/java/com/algaworks/cobranca/controller/LoginController.java
+:000000 100644 0000000 a1ac821 A	src/main/java/com/algaworks/cobranca/controller/TituloController.java
+:000000 100644 0000000 3ef67db A	src/main/java/com/algaworks/cobranca/model/Mes.java
+:000000 100644 0000000 a4ade15 A	src/main/java/com/algaworks/cobranca/model/Perfil.java
+:000000 100644 0000000 ed8ecc0 A	src/main/java/com/algaworks/cobranca/model/StatusTitulo.java
+:000000 100644 0000000 8e828c4 A	src/main/java/com/algaworks/cobranca/model/Titulo.java
+:000000 100644 0000000 8505fb2 A	src/main/java/com/algaworks/cobranca/model/Usuario.java
+:000000 100644 0000000 c7e483a A	src/main/java/com/algaworks/cobranca/repository/TituloFilter.java
+:000000 100644 0000000 7c7c32b A	src/main/java/com/algaworks/cobranca/repository/TituloRepository.java
+:000000 100644 0000000 cbb6723 A	src/main/java/com/algaworks/cobranca/repository/UsuarioRepository.java
+:000000 100644 0000000 ce32ae1 A	src/main/java/com/algaworks/cobranca/security/AutenticacaoService.java
+:000000 100644 0000000 50da69d A	src/main/java/com/algaworks/cobranca/security/SecurityConfiguration.java
+:000000 100644 0000000 9b74842 A	src/main/java/com/algaworks/cobranca/service/CadastroTituloService.java
+:000000 100644 0000000 3e1cb34 A	src/main/resources/application.properties
+:000000 100644 0000000 1dcc5dd A	src/main/resources/static/css/bootstrap-datepicker.standalone.min.css
+:000000 100644 0000000 31d8882 A	src/main/resources/static/css/bootstrap-theme.css
+:000000 100644 0000000 5e39401 A	src/main/resources/static/css/bootstrap-theme.min.css
+:000000 100644 0000000 6167622 A	src/main/resources/static/css/bootstrap.css
+:000000 100644 0000000 ed3905e A	src/main/resources/static/css/bootstrap.min.css
+:000000 100644 0000000 91b0afc A	src/main/resources/static/css/style.css
+:000000 100644 0000000 b93a495 A	src/main/resources/static/fonts/glyphicons-halflings-regular.eot
+:000000 100644 0000000 94fb549 A	src/main/resources/static/fonts/glyphicons-halflings-regular.svg
+:000000 100644 0000000 1413fc6 A	src/main/resources/static/fonts/glyphicons-halflings-regular.ttf
+:000000 100644 0000000 9e61285 A	src/main/resources/static/fonts/glyphicons-halflings-regular.woff
+:000000 100644 0000000 64539b5 A	src/main/resources/static/fonts/glyphicons-halflings-regular.woff2
+:000000 100644 0000000 5c47326 A	src/main/resources/static/imagem/controlCar2.png
+:000000 100644 0000000 372350d A	src/main/resources/static/imagem/financeiro_fundo.jpg
+:000000 100644 0000000 8800106 A	src/main/resources/static/js/bootstrap-datepicker.min.js
+:000000 100644 0000000 2d3f8af A	src/main/resources/static/js/bootstrap-datepicker.pt-BR.min.js
+:000000 100644 0000000 8a2e99a A	src/main/resources/static/js/bootstrap.js
+:000000 100644 0000000 9bcd2fc A	src/main/resources/static/js/bootstrap.min.js
+:000000 100644 0000000 f2f4a54 A	src/main/resources/static/js/cobranca.js
+:000000 100644 0000000 49990d6 A	src/main/resources/static/js/jquery-2.1.4.min.js
+:000000 100644 0000000 2cc4cdf A	src/main/resources/static/js/jquery.maskMoney.min.js
+:000000 100644 0000000 bf6aa80 A	src/main/resources/static/js/npm.js
+:000000 100644 0000000 71fc37b A	src/main/resources/templates/bemVindo.html
+:000000 100644 0000000 d33f619 A	src/main/resources/templates/cabecalho.html
+:000000 100644 0000000 7f9537f A	src/main/resources/templates/cadastroTitulo.html
+:000000 100644 0000000 b5a7ad8 A	src/main/resources/templates/dialogoConfirmacaoExclusao.html
+:000000 100644 0000000 0c8da12 A	src/main/resources/templates/layoutpadrao.html
+:000000 100644 0000000 8613eaa A	src/main/resources/templates/login.html
+:000000 100644 0000000 e9436fd A	src/main/resources/templates/mensagemErro.html
+:000000 100644 0000000 5d90f17 A	src/main/resources/templates/mensagemGeral.html
+:000000 100644 0000000 4e75803 A	src/main/resources/templates/pesquisaTitulos.html
+:000000 100644 0000000 b933ede A	src/main/resources/templates/teste.html
+:000000 100644 0000000 286166f A	src/test/java/com/algaworks/cobranca/CobrancaApplicationTests.java

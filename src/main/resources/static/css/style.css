@@ -1,0 +1,58 @@
+/* Tela grande*/
+@media ( min-width : 768px) {
+	.panel-default {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.alert {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+.navbar-brand {
+	padding-top: 12px;
+}
+
+#logo {
+	padding-top: 0px;
+	color: White;
+	font-size: 40px;
+}
+
+.aw-link-panel {
+	float: right;
+	padding: 0px;
+}
+
+.aw-titulo-panel {
+	float: left;
+	padding-top: 2px;
+}
+
+.navbar-inverse {
+	background-color: #6495ED;
+}
+
+#circulo {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	border: 3px solid #000;
+	z-index: 5;
+	background: #6495ED;
+	position: relative;
+}
+
+#dentro {
+	z-index:1;
+	width: 150px;
+	height: 130px;
+	background-position:center;
+}
+
+body {
+	background-image: url(/imagem/financeiro_fundo.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
