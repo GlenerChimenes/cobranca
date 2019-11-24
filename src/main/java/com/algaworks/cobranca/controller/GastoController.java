@@ -40,7 +40,7 @@ public class GastoController {
 		List<Titulo> gasto = service.filtroGasto(year);
 		mv.addObject("titulos", gasto);
 
-		BigDecimal valorTotal = service.valorTotal();
+		BigDecimal valorTotal = service.valorTotal(year);
 		mv.addObject("valorTotal", valorTotal);
 
 		return mv;

@@ -58,15 +58,143 @@ public class CadastroTituloService  {
 		return titulos;
 	}
 	
-	public BigDecimal valorTotal(){
+	public BigDecimal valorTotal(Year year){
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Janeiro" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'JANEIRO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
 		
-		BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t")
-				.getSingleResult();
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Fevereiro" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'FEVEREIRO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "MARCO" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'MARCO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Abril" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'ABRIL'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Maio" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'MAIO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Junho" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'JUNHO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Julho" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'JULHO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
 		
-		return (BigDecimal) titulos;
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Agosto" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'AGOSTO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Setembro" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'SETEMBRO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Outubro" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'OUTUBRO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Novembro" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'NOVEMBRO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Dezembro" ) {
+			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'DEZEMBRO'")
+					.getSingleResult();
+			
+			return (BigDecimal) titulos;
+		}
+//		BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t")
+//				.getSingleResult();
+//		
+		return null;
 	}
+	
+	
 
 	public List<Titulo> filtroGasto(Year year) {
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Janeiro") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'JANEIRO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Fevereiro") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'FEVEREIRO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Marco") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'MARCO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Abril") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'ABRIL'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Maio") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'MAIO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Junho") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'JUNHO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Julho") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'JULHO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
 		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Agosto") {
 			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'AGOSTO'  ")
 					.getResultList();
@@ -80,6 +208,29 @@ public class CadastroTituloService  {
 			
 			return filtro;
 		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Outubro") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'OUTUBRO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Novembro") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'NOVEMBRO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Dezembro") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'DEZEMBRO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		
 		
 		return null;
 		

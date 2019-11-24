@@ -30,7 +30,7 @@ public class CobrancaApplication {
 		
 		@Override
 		public void addViewControllers(ViewControllerRegistry registry) {
-			registry.addRedirectViewController("/", "/titulos/mostrarTitulos");
+			registry.addRedirectViewController("/", "/titulos/novo");
 		}
 		
 	}
