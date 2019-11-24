@@ -14,9 +14,7 @@ public interface TituloRepository extends JpaRepository<Titulo, Long>{
 
 	Titulo findByCodigo(Long codigo);
 
-	@Query("select SUM(t.valor) "
-			+ ""
-			+ "from Titulo t ")
+	@Query("select SUM(t.valor) from Titulo t ")
 	List<Titulo> somoGastos( String valorTotal);
 	
 	

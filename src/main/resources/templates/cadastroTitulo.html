@@ -19,7 +19,7 @@
 			<div class="panel-heading">
 				<div class="clearfix">
 					<h1 class="panel-title aw-titulo-panel">Novo gasto</h1>
-					<a class="btn btn-link aw-link-panel"  th:href="@{/titulos/mostrarTitulos}" >Voltar para pesquisa</a>
+					<a class="btn btn-link aw-link-panel"  th:href="@{/gastos}" >Ver gastos</a>
 				</div>
 			</div>
 		
@@ -33,6 +33,15 @@
 						<option th:each="mes : ${mes}" th:value="${mes}" th:text="${mes.descricao}"></option>
 					</select>
 				</div>
+				
+				<label for="ano" class="col-sm-1 control-label">Ano</label>
+				<div class="col-sm-1">
+					<select class="form-control" name="ano" th:field="*{ano}">
+						<option th:each="ano : ${ano}" th:value="${ano}" th:text="${ano.descricao}" ></option>
+					</select>
+				</div>
+				
+				
 			</div>
 		
 			<div class="form-group" th:classappend="${#fields.hasErrors('descricao')} ? has-error">

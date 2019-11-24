@@ -28,6 +28,9 @@ public class Titulo {
 	private Long codigo;
 	
 	@Enumerated(EnumType.STRING)
+	private Ano ano;
+	
+	@Enumerated(EnumType.STRING)
 	private Mes mes;
 	
 	@NotEmpty(message = "Descrição é obrgatória")
@@ -115,6 +118,14 @@ public class Titulo {
 	
 	public void setMes(Mes mes) {
 		this.mes = mes;
+	}
+	
+	public Ano getAno() {
+		return ano;
+	}
+	
+	public void setAno(Ano ano) {
+		this.ano = ano;
 	}
 	
 	

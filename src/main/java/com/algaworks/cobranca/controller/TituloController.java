@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.algaworks.cobranca.model.Ano;
 import com.algaworks.cobranca.model.Mes;
 import com.algaworks.cobranca.model.StatusTitulo;
 import com.algaworks.cobranca.model.Titulo;
@@ -113,6 +114,12 @@ public class TituloController {
 	public List<Mes> mes() {
 		return Arrays.asList(Mes.values());
 	}
+	
+	@ModelAttribute("ano")
+	public List<Ano> ano() {
+		return Arrays.asList(Ano.values());
+	}
+	
 	
 	@RequestMapping(value = "/mostrarTitulos", method = RequestMethod.GET)
 	public ModelAndView titulos(TituloFilter filtro) {

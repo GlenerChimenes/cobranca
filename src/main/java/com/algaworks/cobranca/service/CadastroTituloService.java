@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.algaworks.cobranca.model.StatusTitulo;
 import com.algaworks.cobranca.model.Titulo;
+import com.algaworks.cobranca.model.Year;
 import com.algaworks.cobranca.repository.TituloFilter;
 import com.algaworks.cobranca.repository.TituloRepository;
 
@@ -63,6 +64,26 @@ public class CadastroTituloService  {
 				.getSingleResult();
 		
 		return (BigDecimal) titulos;
+	}
+
+	public List<Titulo> filtroGasto(Year year) {
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Agosto") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'AGOSTO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Setembro") {
+			List<Titulo> filtro =  (List<Titulo>) manager.createQuery("select t from Titulo t where t.ano = 'ANO2019' and t.mes = 'SETEMBRO'  ")
+					.getResultList();
+			
+			return filtro;
+		}
+		
+		return null;
+		
+		
 	}
 	
 	
