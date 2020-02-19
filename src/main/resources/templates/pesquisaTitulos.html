@@ -45,6 +45,22 @@
 				<table class="table table-bordered table-striped">
 					<thead>
 						<tr>
+							<th class="text-center col-md-1">Total</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						
+
+					</tbody>
+
+				</table>
+			</div>
+
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
 							<th class="text-center col-md-1">Ano</th>
 							<th>Mês</th>
 							<th>Descrição</th>
@@ -84,7 +100,7 @@
 						</tr>
 						<tr>
 							<td class="alert alert-info" colspan="6"
-								th:if="${#lists.isEmpty(titulos)}">Nenhum título foi
+								th:if="${#lists.isEmpty(titulos)}">Nenhum gasto foi
 								encontrado</td>
 						</tr>
 
@@ -92,17 +108,17 @@
 
 				</table>
 			</div>
-			<div class="form-group" id="circulo">
+			<center><div class="form-group" id="circulo">
 				<div class="form-group" id="dentro">
 					<table>
 						<tr>
-							<td>Valor Total</td>
+							<td> Total</td>
 						</tr>
 
 						<tr th:each="valor : ${valorTotal}">
-							<td th:text="${valor}"></td>
+							<td th:text="|R$ ${valor}|"></td>
 						</tr>
-					</table>
+					</table></center>
 
 				</div>
 

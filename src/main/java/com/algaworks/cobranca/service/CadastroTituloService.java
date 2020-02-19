@@ -4,11 +4,15 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.algaworks.cobranca.model.Ano;
+import com.algaworks.cobranca.model.Mes;
 import com.algaworks.cobranca.model.StatusTitulo;
 import com.algaworks.cobranca.model.Titulo;
 import com.algaworks.cobranca.model.Year;
@@ -58,6 +62,7 @@ public class CadastroTituloService  {
 		return titulos;
 	}
 	
+	@Deprecated
 	public BigDecimal valorTotal(Year year){
 		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Janeiro" ) {
 			BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano='ANO2019' and t.mes = 'JANEIRO'")
@@ -143,7 +148,7 @@ public class CadastroTituloService  {
 	}
 	
 	
-
+	@Deprecated
 	public List<Titulo> filtroGasto(Year year) {
 		
 		if(year.getAno().getDescricao() == "2019" && year.getMes().getDescricao() == "Janeiro") {
@@ -235,6 +240,27 @@ public class CadastroTituloService  {
 		return null;
 		
 		
+	}
+
+	
+	
+	public List<Titulo> buscaGastosMes(Year year){
+		List<Titulo> titulos = manager.createQuery("select t from Titulo t where t.ano = '" + year.getAno() + "' and t.mes = '" + year.getMes() + "'").getResultList();
+		
+		return titulos;
+	}
+	
+	public BigDecimal valorTotalNew(Year year) {
+		BigDecimal soma = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano = '" + year.getAno() + "' and t.mes = '" + year.getMes() + "'").getSingleResult();
+		return (BigDecimal) soma;
+	}
+	
+	
+	public BigDecimal valorTotalGeral() {
+		BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t")
+				.getSingleResult();
+		
+		return titulos;
 	}
 	
 	

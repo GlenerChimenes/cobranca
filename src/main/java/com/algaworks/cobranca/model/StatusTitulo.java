@@ -4,7 +4,7 @@ public enum StatusTitulo {
 
 	
 	PENDENTE("Pendente"),
-	PAGO("pago");
+	PAGO    ("pago    ");
 
 	private String descricao;
 	

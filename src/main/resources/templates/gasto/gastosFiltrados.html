@@ -18,7 +18,7 @@
 			<div class="clearfix">
 				<a th:href="@{/titulos/novo}"><button class="btn btn-info">Novo gasto</button></a>
 				<a th:href="@{/gastos}"><button class="btn btn-primary " >Voltar para o filtro</button></a>
-				
+				<a  class="btn btn-info aw-link-panel" th:href="@{/titulos/mostrarTitulos}" ><button class="btn btn-info">Vizualizar todos os gastos</button></a>
 			</div>
 		</div>
 
@@ -42,6 +42,18 @@
 <!-- 			</form> -->
 
 			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr th:each="valor : ${valorTotal}">
+							<th class="text-right" >Total  = </th>
+							<th class="text-left" th:text="${valor}"></th>
+						</tr>
+					</thead>
+
+				</table>
+			</div>
+
+			<div class="table-responsive">
 				<table class="table table-bordered table-striped">
 					<thead>
 						<tr>
@@ -51,7 +63,7 @@
 							<th class="text-center col-md-2">Data de vencimento</th>
 							<th class="text-right col-md-2">Valor</th>
 							<th class="text-center col-md-2">Status</th>
-							<th class="col-md-1"></th>
+							<th class="col-md-1">Ação</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -84,7 +96,7 @@
 						</tr>
 						<tr>
 							<td class="alert alert-info" colspan="6"
-								th:if="${#lists.isEmpty(titulos)}">Nenhum título foi
+								th:if="${#lists.isEmpty(titulos)}">Nenhum gasto foi
 								encontrado</td>
 						</tr>
 
@@ -92,7 +104,7 @@
 
 				</table>
 			</div>
-			<div class="form-group" id="circulo">
+			<center><div class="form-group" id="circulo">
 				<div class="form-group" id="dentro">
 					<table>
 						<tr>
@@ -104,7 +116,7 @@
 						</tr>
 					</table>
 
-				</div>
+				</div></center>
 
 			</div>
 		</div>

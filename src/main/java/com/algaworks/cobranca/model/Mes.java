@@ -2,18 +2,18 @@ package com.algaworks.cobranca.model;
 
 public enum Mes {
 
-	JANEIRO("Janeiro"),
+	JANEIRO  ("Janeiro"  ),
 	FEVEREIRO("Fevereiro"),
-	MARCO("Marco"),
-	ABRIL("Abril"),
-	MAIO("Maio"),
-	JUNHO("Junho"),
-	JULHO("Julho"),
-	AGOSTO("Agosto"),
-	SETEMBRO("Setembro"),
-	OUTUBRO("Outubro"),
-	NOVEMBRO("Novembro"),
-	DEZEMBRO("Dezembro");
+	MARCO    ("Marco"    ),
+	ABRIL    ("Abril"    ),
+	MAIO     ("Maio"     ),
+	JUNHO    ("Junho"    ),
+	JULHO    ("Julho"    ),
+	AGOSTO   ("Agosto"   ),
+	SETEMBRO ("Setembro" ),
+	OUTUBRO  ("Outubro"  ),
+	NOVEMBRO ("Novembro" ),
+	DEZEMBRO ("Dezembro" );
 	
 	private String descricao;
 	

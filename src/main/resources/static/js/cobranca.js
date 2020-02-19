@@ -33,7 +33,7 @@ $(function() {
 			url: urlReceber,
 		
 			type: 'PUT'
-		});
+		});  
 		
 		
 		response.done(function(e) {

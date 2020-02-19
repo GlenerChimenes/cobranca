@@ -1,4 +1,4 @@
-package com.algaworks.cobranca.model;
+	package com.algaworks.cobranca.model;
 
 import java.math.BigDecimal;
 import java.util.Date;

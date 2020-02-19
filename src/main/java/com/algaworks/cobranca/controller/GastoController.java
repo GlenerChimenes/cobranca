@@ -37,10 +37,10 @@ public class GastoController {
 	public ModelAndView filtroGastos(Year year) {
 		ModelAndView mv = new ModelAndView("gasto/gastosFiltrados");
 
-		List<Titulo> gasto = service.filtroGasto(year);
+		List<Titulo> gasto = service.buscaGastosMes(year);
 		mv.addObject("titulos", gasto);
 
-		BigDecimal valorTotal = service.valorTotal(year);
+		BigDecimal valorTotal = service.valorTotalNew(year);
 		mv.addObject("valorTotal", valorTotal);
 
 		return mv;
