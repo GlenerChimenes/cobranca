@@ -6,7 +6,6 @@
 
 <head>
 <title>Pesquisa de gasto</title>
-
 </head>
 
 <section layout:fragment="conteudo">
@@ -40,17 +39,9 @@
 <!-- 					</div> -->
 <!-- 				</div> -->
 <!-- 			</form> -->
-
-			<div class="table-responsive">
-				<table class="table">
-					<thead>
-						<tr th:each="valor : ${valorTotal}">
-							<th class="text-right" >Total  = </th>
-							<th class="text-left" th:text="${valor}"></th>
-						</tr>
-					</thead>
-
-				</table>
+			
+			<div class="valorTotal" >
+				<h3 th:text="${#numbers.formatCurrency (valorTotal)}"></h3>
 			</div>
 
 			<div class="table-responsive">
@@ -104,21 +95,7 @@
 
 				</table>
 			</div>
-			<center><div class="form-group" id="circulo">
-				<div class="form-group" id="dentro">
-					<table>
-						<tr>
-							<td>Valor Total</td>
-						</tr>
 
-						<tr th:each="valor : ${valorTotal}">
-							<td th:text="${valor}"></td>
-						</tr>
-					</table>
-
-				</div></center>
-
-			</div>
 		</div>
 
 

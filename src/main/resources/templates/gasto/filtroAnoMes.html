@@ -30,14 +30,14 @@
 			<div class="form-group">
 				<label for="mes" class="col-sm-2 control-label">Mês</label>
 				<div class="col-sm-2">
-					<select class="form-control" name="mes" th:field="*{mes}">
+					<select class="form-control form-control-lg" name="mes" th:field="*{mes}">
 						<option th:each="mes : ${mes}" th:value="${mes}" th:text="${mes.descricao}"></option>
 					</select>
 				</div>
 				
 				<label for="ano" class="col-sm-1 control-label">Ano</label>
 				<div class="col-sm-1">
-					<select class="form-control" name="ano" th:field="*{ano}">
+					<select class="form-control form-control-lg" name="ano" th:field="*{ano}">
 						<option th:each="ano : ${ano}" th:value="${ano}" th:text="${ano.descricao}" ></option>
 					</select>
 				</div>
@@ -48,7 +48,7 @@
 			
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-primary">Salvar</button>
+					<button type="submit" class="btn btn-primary">Buscar</button>
 				</div>
 			</div>
 			

@@ -262,6 +262,15 @@ public class CadastroTituloService  {
 		
 		return titulos;
 	}
+
+	public double valorTotalPorDescrcao(List<Titulo> todosTitulos) {
+		double total = 0;
+		for (Titulo titulo : todosTitulos) {
+			 total += titulo.getValor().doubleValue();
+		}
+		
+		return total;
+	}
 	
 	
 	

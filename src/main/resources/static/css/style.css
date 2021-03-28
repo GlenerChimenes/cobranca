@@ -57,5 +57,18 @@
 body {
 	background-image: url(/imagem/financeiro_fundo.jpg);
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 90%;
 }
+
+.total{
+	float: right; 
+	width: 60%;
+	left: 300px;
+	background-color: #6495ED;
+	}
+
+.valorTotal{
+	width: 12%;
+	border: 4px;
+	background-color: #c0c0c0;
+	}

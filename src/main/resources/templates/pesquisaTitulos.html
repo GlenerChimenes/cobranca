@@ -41,20 +41,8 @@
 				</div>
 			</form>
 
-			<div class="table-responsive">
-				<table class="table table-bordered table-striped">
-					<thead>
-						<tr>
-							<th class="text-center col-md-1">Total</th>
-							
-						</tr>
-					</thead>
-					<tbody>
-						
-
-					</tbody>
-
-				</table>
+			<div class="valorTotal" >
+				<h3 th:text="${#numbers.formatCurrency (valorTotal)}"></h3>
 			</div>
 
 			<div class="table-responsive">
@@ -67,7 +55,7 @@
 							<th class="text-center col-md-2">Data de vencimento</th>
 							<th class="text-right col-md-2">Valor</th>
 							<th class="text-center col-md-2">Status</th>
-							<th class="col-md-1"></th>
+							<th class="col-md-1 text-center col-md-2">Ação</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -108,21 +96,7 @@
 
 				</table>
 			</div>
-			<center><div class="form-group" id="circulo">
-				<div class="form-group" id="dentro">
-					<table>
-						<tr>
-							<td> Total</td>
-						</tr>
 
-						<tr th:each="valor : ${valorTotal}">
-							<td th:text="|R$ ${valor}|"></td>
-						</tr>
-					</table></center>
-
-				</div>
-
-			</div>
 		</div>
 
 

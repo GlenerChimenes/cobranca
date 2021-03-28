@@ -68,9 +68,8 @@ public class TituloController {
 		ModelAndView mv = new ModelAndView("pesquisaTitulos");
 		mv.addObject("titulos", todosTitulos);
 		
-		BigDecimal valorTotal = cadastroTituloService.valorTotalGeral();
+		double valorTotal = cadastroTituloService.valorTotalPorDescrcao(todosTitulos);
 		mv.addObject("valorTotal", valorTotal);
-		
 		return mv;
 	}
 	
