@@ -22,6 +22,8 @@ import com.algaworks.cobranca.service.CadastroTituloService;
 @RequestMapping("/gastos")
 public class GastoController {
 
+	BigDecimal rendaBruta = new BigDecimal("6900.00");
+	
 	@Autowired
 	CadastroTituloService service;
 
@@ -39,9 +41,11 @@ public class GastoController {
 
 		List<Titulo> gasto = service.buscaGastosMes(year);
 		mv.addObject("titulos", gasto);
+		mv.addObject("mes", gasto.get(1).getMes().getDescricao());
 
 		BigDecimal valorTotal = service.valorTotalNew(year);
 		mv.addObject("valorTotal", valorTotal);
+		mv.addObject("sobrando", rendaBruta.subtract(valorTotal) );
 
 		return mv;
 	}
