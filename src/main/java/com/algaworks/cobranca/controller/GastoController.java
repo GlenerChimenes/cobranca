@@ -30,7 +30,7 @@ public class GastoController {
 	@GetMapping
 	public ModelAndView selecionaAnoEMes(Year year) {
 		ModelAndView mv = new ModelAndView("gasto/filtroAnoMes");
-		mv.addObject("year", year);
+		//mv.addObject("year", year);
 
 		return mv;
 	}
@@ -41,11 +41,11 @@ public class GastoController {
 
 		List<Titulo> gasto = service.buscaGastosMes(year);
 		mv.addObject("titulos", gasto);
-		mv.addObject("mes", gasto.get(1).getMes().getDescricao());
+		mv.addObject("mes", !gasto.isEmpty()? gasto.get(1).getMes().getDescricao():"Nenhum mês encontrado");
 
 		BigDecimal valorTotal = service.valorTotalNew(year);
-		mv.addObject("valorTotal", valorTotal);
-		mv.addObject("sobrando", rendaBruta.subtract(valorTotal) );
+		mv.addObject("valorTotal",valorTotal != null? valorTotal :"0.00");
+		mv.addObject("sobrando", valorTotal != null? rendaBruta.subtract(valorTotal):"0.00"  );
 
 		return mv;
 	}

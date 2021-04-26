@@ -26,7 +26,7 @@
 				<a title="Renda bruta" rel="tooltip"><button id="valorTotal" class="btn btn-success" >Renda R$ 6.900,00</button></a>
 				<a title="Saldo saída" rel="tooltip"><button th:text="${#numbers.formatCurrency (valorTotal)}" class="btn btn-danger"></button></a>
 				<a title="Saldo positivo" rel="tooltip"><button th:text="${#numbers.formatCurrency (sobrando)}"  class="btn btn-success " ></button></a>
-				<a class="btn btn-info aw-link-panel"  ><button th:text="${mes}"  class="btn btn-info">Mês</button></a>
+				<a title="Mês referência" rel="tooltip" class="btn btn-info aw-link-panel"  ><button th:text="${mes}"  class="btn btn-info">Mês</button></a>
 			</div>
 		</div>
 
