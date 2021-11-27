@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.algaworks.cobranca.model.Ano;
@@ -22,7 +24,7 @@ import com.algaworks.cobranca.service.CadastroTituloService;
 @RequestMapping("/gastos")
 public class GastoController {
 
-	BigDecimal rendaBruta = new BigDecimal("6900.00");
+	BigDecimal rendaBruta = new BigDecimal("3562.00");
 	
 	@Autowired
 	CadastroTituloService service;
@@ -41,11 +43,19 @@ public class GastoController {
 
 		List<Titulo> gasto = service.buscaGastosMes(year);
 		mv.addObject("titulos", gasto);
-		mv.addObject("mes", !gasto.isEmpty()? gasto.get(1).getMes().getDescricao():"Nenhum mês encontrado");
+		mv.addObject("mes", !gasto.isEmpty()? gasto.get(0).getMes().getDescricao():"Nenhum mês encontrado");
 
 		BigDecimal valorTotal = service.valorTotalNew(year);
 		mv.addObject("valorTotal",valorTotal != null? valorTotal :"0.00");
 		mv.addObject("sobrando", valorTotal != null? rendaBruta.subtract(valorTotal):"0.00"  );
+
+		return mv;
+	}
+	
+	@RequestMapping(value="/replicar", method = RequestMethod.GET)
+	public ModelAndView replicar(Year year) {
+		ModelAndView mv = new ModelAndView("gasto/replicarDados");
+		//mv.addObject("year", year);
 
 		return mv;
 	}
