@@ -27,6 +27,12 @@
 		<div class="panel-body" >
 			<input type="hidden" th:field="*{codigo}" />	
 			
+			<div class="alert alert-success" th:text="${registrosInseridos}"
+				th:if="${not #strings.isEmpty(registrosInseridos)}"></div>
+				
+			<div class="alert alert-danger" th:text="${registrosErro}"
+			th:if="${not #strings.isEmpty(registrosErro)}"></div>
+			
 			<div class="form-group">
 				<label for="mes" class="col-sm-2 control-label">Mês atual</label>
 				<div class="col-sm-2">
@@ -45,15 +51,15 @@
 				<div class="form-group">
 				<label for="mes" class="col-sm-2 control-label">Mês a replicar</label>
 				<div class="col-sm-2">
-					<select class="form-control form-control-lg" name="mes" th:field="*{mes}">
-						<option th:each="mes : ${mes}" th:value="${mes}" th:text="${mes.descricao}"></option>
+					<select class="form-control form-control-lg" name="mes" th:field="*{mesReplicar}">
+						<option th:each="mes : ${mesReplicar}" th:value="${mes}" th:text="${mes.descricao}"></option>
 					</select>
 				</div>
 				
 				<label for="ano" class="col-sm-1 control-label">Ano a replicar</label>
 				<div class="col-sm-1">
-					<select class="form-control form-control-lg" name="ano" th:field="*{ano}">
-						<option th:each="ano : ${ano}" th:value="${ano}" th:text="${ano.descricao}" ></option>
+					<select class="form-control form-control-lg" name="ano" th:field="*{anoReplicar}">
+						<option th:each="ano : ${anoReplicar}" th:value="${ano}" th:text="${ano.descricao}" ></option>
 					</select>
 				</div>
 				

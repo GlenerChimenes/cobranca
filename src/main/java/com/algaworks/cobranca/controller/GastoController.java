@@ -3,6 +3,7 @@ package com.algaworks.cobranca.controller;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.algaworks.cobranca.model.Ano;
+import com.algaworks.cobranca.model.AnoReplicar;
 import com.algaworks.cobranca.model.Mes;
+import com.algaworks.cobranca.model.MesReplicar;
 import com.algaworks.cobranca.model.Titulo;
 import com.algaworks.cobranca.model.Year;
 import com.algaworks.cobranca.service.CadastroTituloService;
@@ -59,6 +62,36 @@ public class GastoController {
 
 		return mv;
 	}
+	
+	@RequestMapping(value="/replicarDados", method = RequestMethod.POST)
+	public ModelAndView replicarDados(Year year) throws Exception {
+		ModelAndView mv = new ModelAndView("gasto/replicarDados");
+		try {
+			if(validaPeriodo(year)) {
+				mv.addObject("registrosErro", "Já existe registros para o período");
+				return mv;
+			}
+			service.replicarDados(year);
+			mv.addObject("registrosInseridos", "Registros inseridos com sucesso.");
+		}catch (Exception e) {
+			mv.addObject("registrosErro", "Erro ao inserir registros.");
+			return mv;
+			//throw new Exception("Erro  ao inserir registros.");
+		}
+		
+		
+		return mv;
+	}
+
+	private boolean validaPeriodo(Year year) {
+		boolean ret = false;
+		
+		List<Titulo> gastos = service.buscaGastosMesReplicar(year);
+		if(!gastos.isEmpty()) {
+			ret = true;
+		}
+		return ret;
+	}
 
 	@ModelAttribute("mes")
 	public List<Mes> mes() {
@@ -68,6 +101,16 @@ public class GastoController {
 	@ModelAttribute("ano")
 	public List<Ano> ano() {
 		return Arrays.asList(Ano.values());
+	}
+	
+	@ModelAttribute("mesReplicar")
+	public List<MesReplicar> mesReplicar() {
+		return Arrays.asList(MesReplicar.values());
+	}
+
+	@ModelAttribute("anoReplicar")
+	public List<AnoReplicar> anoReplicar() {
+		return Arrays.asList(AnoReplicar.values());
 	}
 
 }

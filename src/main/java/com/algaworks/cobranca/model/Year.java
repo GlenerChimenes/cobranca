@@ -12,6 +12,29 @@ public class Year {
 	
 	@Enumerated(EnumType.STRING)
 	private Mes mes;
+	
+	@Enumerated(EnumType.STRING)
+	private AnoReplicar anoReplicar;
+	
+	@Enumerated(EnumType.STRING)
+	private MesReplicar mesReplicar;
+	
+
+	public AnoReplicar getAnoReplicar() {
+		return anoReplicar;
+	}
+
+	public void setAnoReplicar(AnoReplicar anoReplicar) {
+		this.anoReplicar = anoReplicar;
+	}
+
+	public MesReplicar getMesReplicar() {
+		return mesReplicar;
+	}
+
+	public void setMesReplicar(MesReplicar mesReplicar) {
+		this.mesReplicar = mesReplicar;
+	}
 
 	public Long getCodigo() {
 		return codigo;
@@ -36,6 +59,5 @@ public class Year {
 	public void setMes(Mes mes) {
 		this.mes = mes;
 	}
-	
 	
 }

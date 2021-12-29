@@ -2,6 +2,7 @@ package com.algaworks.cobranca.service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -241,21 +242,28 @@ public class CadastroTituloService  {
 		
 		
 	}
-
 	
-	
+	/**Buscar gastos para o periodo */
 	public List<Titulo> buscaGastosMes(Year year){
 		List<Titulo> titulos = manager.createQuery("select t from Titulo t where t.ano = '" + year.getAno() + "' and t.mes = '" + year.getMes() + "'").getResultList();
 		
 		return titulos;
 	}
 	
+	/**Valida se já existe gastos no periodo */
+	public List<Titulo> buscaGastosMesReplicar(Year year){
+		List<Titulo> titulos = manager.createQuery("select t from Titulo t where t.ano = '" + year.getAnoReplicar() + "' and t.mes = '" + year.getMesReplicar() + "'").getResultList();
+		
+		return titulos;
+	}
+	
+	/**Soma os gostos do periodo */
 	public BigDecimal valorTotalNew(Year year) {
 		BigDecimal soma = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t where t.ano = '" + year.getAno() + "' and t.mes = '" + year.getMes() + "'").getSingleResult();
 		return (BigDecimal) soma;
 	}
 	
-	
+	/**Soma os gostos de todos os periodos */
 	public BigDecimal valorTotalGeral() {
 		BigDecimal titulos = (BigDecimal) manager.createQuery("select sum(t.valor) from Titulo t")
 				.getSingleResult();
@@ -263,6 +271,7 @@ public class CadastroTituloService  {
 		return titulos;
 	}
 
+	/**Soma os gastos por descricao*/
 	public double valorTotalPorDescrcao(List<Titulo> todosTitulos) {
 		double total = 0;
 		for (Titulo titulo : todosTitulos) {
@@ -270,6 +279,11 @@ public class CadastroTituloService  {
 		}
 		
 		return total;
+	}
+
+	/**Replica os gastos para outro mes escolhido */
+	public void replicarDados(Year year) {
+		 tituloRepository.replicarDados(year.getAno().name(), year.getMes().name(), year.getAnoReplicar().name(), year.getMesReplicar().name());
 	}
 	
 	
