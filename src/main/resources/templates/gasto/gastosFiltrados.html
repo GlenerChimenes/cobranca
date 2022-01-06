@@ -9,7 +9,9 @@
 </head>
 
 <section layout:fragment="conteudo">
-	<div th:replace="mensagemGeral" th:object="${titulos}"></div>
+
+	<div class="alert alert-danger" th:text="${mensagem}"
+		th:if="${not #strings.isEmpty(mensagem)}"></div>
 
 	<div class="panel panel-default">
 
@@ -79,22 +81,22 @@
 								th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}">
 								</span>
 							</td>
-							<td class="text-center"><a class="btn btn-link btn-xs"
-								th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}"
-								title="Editar" rel="tooltip" data-placement="top"> <span
+							<td class="text-center">
+								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}"
+									title="Editar" rel="tooltip" data-placement="top"> <span
 									class="glyphicon glyphicon-pencil"></span>
-							</a> <a class="btn btn-link btn-xs" data-toggle="modal"
-								data-target="#confirmacaoExclusaoModal"
-								th:attr="data-codigo=${titulo.codigo},
-										data-descricao=${titulo.descricao}"
-								title="Excluir" rel="tooltip" data-placement="top"> <span
+								</a> 
+								<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#dialogoConfirmacaoExclusaoFiltroGastos"
+									th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"
+									title="Excluir" rel="tooltip" data-placement="top"> <span
 									class="glyphicon glyphicon-remove"></span>
-								</a> <a class="btn btn-link btn-xs js-atualizar-status"
-								th:if="${titulo.pendente}" title="Pagar" rel="tooltip"
-								data-placement="top" th:attr="data-codigo=${titulo.codigo}"
-								th:href="@{/titulos/{codigo}/receber(codigo=${titulo.codigo})}">
+								</a> 
+								<a class="btn btn-link btn-xs js-atualizar-status" th:if="${titulo.pendente}" title="Pagar" rel="tooltip"
+									data-placement="top" th:attr="data-codigo=${titulo.codigo}"
+									th:href="@{/titulos/{codigo}/receber(codigo=${titulo.codigo})}">
 									<span class="glyphicon glyphicon-check"></span>
-							</a></td>
+								</a>
+							</td>
 						</tr>
 						<tr>
 							<td class="alert alert-info" colspan="6"
@@ -110,7 +112,7 @@
 		</div>
 
 
-		<div th:insert="dialogoConfirmacaoExclusao"></div>
+		<div th:insert="dialogoConfirmacaoExclusaoFiltroGastos"></div>
 	</div>
 
 </section>

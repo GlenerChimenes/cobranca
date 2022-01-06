@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.algaworks.cobranca.model.Ano;
 import com.algaworks.cobranca.model.AnoReplicar;
@@ -31,6 +32,9 @@ public class GastoController {
 	
 	@Autowired
 	CadastroTituloService service;
+	
+	@Autowired
+	private CadastroTituloService cadastroTituloService;
 
 	@GetMapping
 	public ModelAndView selecionaAnoEMes(Year year) {
@@ -46,13 +50,26 @@ public class GastoController {
 
 		List<Titulo> gasto = service.buscaGastosMes(year);
 		mv.addObject("titulos", gasto);
-		mv.addObject("mes", !gasto.isEmpty()? gasto.get(0).getMes().getDescricao():"Nenhum mês encontrado");
+		mv.addObject("mes", !gasto.isEmpty()? gasto.get(0).getMes().getDescricao() + " - " + gasto.get(0).getAno().getDescricao():"Nenhum mês encontrado");
 
 		BigDecimal valorTotal = service.valorTotalNew(year);
 		mv.addObject("valorTotal",valorTotal != null? valorTotal :"0.00");
 		mv.addObject("sobrando", valorTotal != null? rendaBruta.subtract(valorTotal):"0.00"  );
 
 		return mv;
+	}
+	
+	@RequestMapping(value = "{codigo}", method = RequestMethod.DELETE)
+	public ModelAndView excluir(@PathVariable("codigo") Titulo titulo, RedirectAttributes attributes) {
+		ModelAndView mv  = new ModelAndView("gasto/gastosFiltrados");
+		
+		Year year = new Year();
+		year.setAno(titulo.getAno());
+		year.setMes(titulo.getMes());
+		
+		cadastroTituloService.excluir(titulo);
+		
+		return filtroGastos(year);
 	}
 	
 	@RequestMapping(value="/replicar", method = RequestMethod.GET)
