@@ -33,7 +33,8 @@ public interface TituloRepository extends JpaRepository<Titulo, Long>{
 					" status,                     " +
 					" valor)                      " +
 					"select :anoReplicar,         " +
-					"       t.data_vencimento,    " +
+//					"       t.data_vencimento,    " +
+					"       DATE_ADD(t.data_vencimento, INTERVAL 1 MONTH ),    " +
 					"       t.descricao,          " +
 					"       :mesReplicar,         " +
 					"       t.status,             " +

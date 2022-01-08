@@ -88,14 +88,14 @@ public class GastoController {
 				mv.addObject("registrosErro", "Já existe registros para o período");
 				return mv;
 			}
+			
 			service.replicarDados(year);
 			mv.addObject("registrosInseridos", "Registros inseridos com sucesso.");
 		}catch (Exception e) {
-			mv.addObject("registrosErro", "Erro ao inserir registros.");
+			mv.addObject("registrosErro", "Erro ao inserir registro: "  + e.getMessage());
 			return mv;
 			//throw new Exception("Erro  ao inserir registros.");
 		}
-		
 		
 		return mv;
 	}
