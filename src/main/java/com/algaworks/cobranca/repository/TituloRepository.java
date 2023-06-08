@@ -41,7 +41,7 @@ public interface TituloRepository extends JpaRepository<Titulo, Long>{
 					"       t.valor               " +
 					"from titulo t                " +
 					" where t.ano =:ano           " +
-					" and   t.mes =:mes           " , 
+					" and   t.mes =:mes           " ,  
 			nativeQuery = true)
 	@Transactional
 	public void replicarDados(@Param("ano") String ano, @Param("mes") String mes, @Param("anoReplicar") String anoReplicar, @Param("mesReplicar") String mesReplicar);
