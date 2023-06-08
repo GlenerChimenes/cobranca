@@ -37,7 +37,7 @@ public interface TituloRepository extends JpaRepository<Titulo, Long>{
 					"       DATE_ADD(t.data_vencimento, INTERVAL 1 MONTH ),    " +
 					"       t.descricao,          " +
 					"       :mesReplicar,         " +
-					"       t.status,             " +
+					"       'PENDENTE',             " +
 					"       t.valor               " +
 					"from titulo t                " +
 					" where t.ano =:ano           " +

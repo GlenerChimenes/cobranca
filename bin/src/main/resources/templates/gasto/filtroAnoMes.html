@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"	
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layoutpadrao">
+<head>
+   <title>Cadastro de título</title>
+   <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datepicker.standalone.min.css}"/>
+ 
+</head>
+
+<section layout:fragment="conteudo">
+
+	<form class="form-horizontal" method="POST" th:action="@{/gastos}" th:object="${year}">
+		<div th:replace="mensagemGeral"></div>
+		<div th:replace="mensagemErro"></div>
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="clearfix">
+					<h1 class="panel-title aw-titulo-panel">Selecione ano e mês</h1>
+					<a class="btn btn-info aw-link-panel"  th:href="@{/titulos/novo}" >Novo gasto</a>
+					
+				</div>
+			</div>
+		
+		<div class="panel-body" >
+			<input type="hidden" th:field="*{codigo}" />	
+			
+			<div class="form-group">
+				<label for="mes" class="col-sm-2 control-label">Mês</label>
+				<div class="col-sm-2">
+					<select class="form-control form-control-lg" name="mes" th:field="*{mes}">
+						<option th:each="mes : ${mes}" th:value="${mes}" th:text="${mes.descricao}"></option>
+					</select>
+				</div>
+				
+				<label for="ano" class="col-sm-1 control-label">Ano</label>
+				<div class="col-sm-1">
+					<select class="form-control form-control-lg" name="ano" th:field="*{ano}">
+						<option th:each="ano : ${ano}" th:value="${ano}" th:text="${ano.descricao}" ></option>
+					</select>
+				</div>
+				
+				
+			</div>
+		
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Buscar</button>
+				</div>
+			</div>
+			
+			</div>
+		</div>
+
+	</form>
+
+</section>
+
+</html>

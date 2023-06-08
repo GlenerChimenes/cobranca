@@ -6,7 +6,8 @@ public enum AnoReplicar {
 	ANO2019("2019"),
 	ANO2020("2020"),
 	ANO2021("2021"),
-	ANO2022("2022");
+	ANO2022("2022"),
+	ANO2023("2023");
 
 	private String descricao;
 
