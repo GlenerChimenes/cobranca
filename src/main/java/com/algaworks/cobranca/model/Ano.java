@@ -7,7 +7,8 @@ public enum Ano {
 	ANO2020("2020"),
 	ANO2021("2021"),
 	ANO2022("2022"),
-	ANO2023("2023");
+	ANO2023("2023"),
+	ANO2024("2024");
 
 	private String descricao;
 
